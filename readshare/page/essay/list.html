@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>主页</title>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/list.css">
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">芸阅读</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="../index/index.html">首页 <span class="sr-only">(current)</span></a></li>
+                    <li><a href="#">热门</a></li>
+                </ul>
+                <form class="navbar-form navbar-left">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search" id="searchKey">
+                    </div>
+                    <button type="button" class="btn btn-success" id="searchBtn">搜索</button>
+                </form>
+                <form class="navbar-form navbar-right">
+                    <button type="button" class="btn btn-default" id="showLoginBtn">登录</button>
+                    <button type="button" class="btn btn-success" id="showRegistBtn">注册</button>
+                    <button type="button" class="btn btn-default hide" id="createEssay">写文章</button>
+                    <button type="button" class="btn btn-success hide" id="personalCenter">个人中心</button>
+                </form>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title" id="topicTitle"></h3>
+            </div>
+            <div class="panel-body" id="essay-body">
+
+            </div>
+        </div>
+        <div class="text-center">
+            <button type="button" class="btn btn-success" id="next">加载更多</button>
+        </div>
+        <br>
+    </div>
+
+    <!--登录模态框-->
+    <div class="modal fade" id="loginModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">登录</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-warning hide" role="alert" id="loginMsg">用户名或密码不正确</div>
+                    <form>
+                        <div class="form-group">
+                            <label for="username">用户名</label>
+                            <input type="email" class="form-control" id="username" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">密码</label>
+                            <input type="password" class="form-control" id="password" placeholder="Password">
+                        </div>
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-success" id="loginBtn">登录</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <!--注册模态框-->
+    <div class="modal fade" id="registModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">注册</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="username">用户名</label>
+                            <input type="email" class="form-control" id="r_username" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="username">昵称</label>
+                            <input type="email" class="form-control" id="r_nickname" placeholder="nickname">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">密码</label>
+                            <input type="password" class="form-control" id="r_password" placeholder="Password">
+                        </div>
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-success" id="registBtn">注册</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="../common/js/login.js"></script>
+    <script src="js/list.js"></script>
+</body>
+</html>
