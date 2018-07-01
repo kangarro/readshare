@@ -20,7 +20,7 @@ $(function(){
         }
         $.ajax({
             type:"GET",
-            url:"/php/api/essay/list.php",
+            url:"/readshare/php/api/essay/list.php",
             data: data,
             async:true,
             success:function(result){

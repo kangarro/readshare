@@ -7,7 +7,7 @@ $(function () {
     }
     $.ajax({
         type:"GET",
-        url:"/php/api/topic/list.php",
+        url:"/readshare/php/api/topic/list.php",
         async:true,
         success:function(result){
             console.log(result);
@@ -43,7 +43,7 @@ $(function () {
         }
         $.ajax({
             type:"GET",
-            url:"/php/api/essay/list.php",
+            url:"/readshare/php/api/essay/list.php",
             data: data,
             async:true,
             success:function(result){

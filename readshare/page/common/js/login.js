@@ -18,7 +18,7 @@ $(function() {
     $("#loginBtn").click(function(){
         $.ajax({
             type:"POST",
-            url:"/php/api/login/login.php",
+            url:"/readshare/php/api/login/login.php",
             data:'username=' + $("#username").val() + "&password=" + $("#password").val(),
             async:true,
             success:function(result){
@@ -45,7 +45,7 @@ $(function() {
     $("#registBtn").click(function(){
         $.ajax({
             type:"POST",
-            url:"/php/api/login/login.php",
+            url:"/readshare/php/api/login/login.php",
             data:'nickname=' + $("#r_nickname").val() +'&username=' + $("#r_username").val() + "&password=" + $("#r_password").val(),
             async:true,
             success:function(result){
