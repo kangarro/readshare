@@ -74,7 +74,9 @@ $(function(){
         }
 
     }
-
+    $("#searchBtn").click(function() {
+        listEssay("search", tid);
+    });
     $("#pre").click(function(){
         changePage(-1);
     });
@@ -82,5 +84,23 @@ $(function(){
         changePage(1);
     });
 
+    $("#showDetail").click(function(){
+        $.ajax({
+            type:"GET",
+            url:"/readshare/php/api/essay/detail.php",
+            data: data,
+            async:true,
+            success:function(result){
+                var obj = JSON.parse(result);
+                if (obj.result == 0) {
+
+                } else {
+                }
+            },
+            error:function(){
+                alert("获取失败");
+            }
+        });
+    });
     listEssay("all", tid);
 });

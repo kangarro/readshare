@@ -28,7 +28,7 @@ $(function() {
                 if (obj.result != 0) {
                     $("#loginMsg").removeClass("hide");
                 } else {
-                    $.cookie('uid', obj.data.uid);
+                    $.cookie('uid', obj.data.uid, { path: '/', expires: 10 });
                     $('#loginModal').modal('hide');
                     $("#showRegistBtn").hide();
                     $("#showLoginBtn").hide();
