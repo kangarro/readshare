@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>主页</title>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/detail.css">
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">芸阅读</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">首页 <span class="sr-only">(current)</span></a></li>
+                    <li><a href="#">热门</a></li>
+                </ul>
+                <form class="navbar-form navbar-left">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search" id="searchKey">
+                    </div>
+                    <button type="button" class="btn btn-success" id="searchBtn">搜索</button>
+                </form>
+                <form class="navbar-form navbar-right">
+                    <button type="button" class="btn btn-default" id="showLoginBtn">登录</button>
+                    <button type="button" class="btn btn-success" id="showRegistBtn">注册</button>
+                    <button type="button" class="btn btn-default hide" id="createEssay">写文章</button>
+                    <button type="button" class="btn btn-success hide" id="personalCenter">个人中心</button>
+                </form>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">文章详情</div>
+            <div class="panel-body">
+                <h3 id="essay-title">标题</h3>
+                <hr>
+                <span>作者：<span id="essay-writer">老湿</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;分类：<span id="essay-topic">军事</span></span>
+                <br><br>
+                <p style="text-indent: 10px" id="essay-content">
+                    走进记忆的深处，让人回味他的温暖与甜蜜。记忆里面总有一个高大的身影，拉着我的小手走过无数个春夏秋冬。在风雨来临时，他总是第一个出现在我的面前，用他那早已弯曲的身躯，为我遮挡数以万次的狂风暴雨。记忆深处，他总用那双早已粗糙的大手拉着我那稚嫩的小手走在乡间的小路上。感受阳光的温暖，感受空气的清新，感受乡间小路旁花朵的芳香，久久扑鼻。 记忆的深处，那个人陪伴着我度过了儿时的时光，那个高大的身影总在我的脑海中不时的浮现，浮现着我和那个身影嬉笑玩闹的画面，记忆中的那个身影，随从的士兵，在我身边保护着我。当我被欺负时，他总出现在最前面。
+                </p>
+                <span class="pull-left"><button class="btn btn-group-sm btn-success"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>  给个赞</button></span>
+                <span class="pull-right" id="essay-writetime">2018-07-01</span>
+                <br>
+                <hr>
+                <div id="comment-box">
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="#">
+                                <img width="40px" class="media-object" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1531066677&di=ac08c3d7c602a4cf4b3c5008a991c490&imgtype=jpg&er=1&src=http%3A%2F%2Ffiles.cnblogs.com%2Ffiles%2FE-WALKER%2Fgithub-sociocon.gif" alt="...">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">小老头</h4>
+                            我觉得这篇文章真是，沁人心脾！
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="../common/js/login.js"></script>
+    <script src="js/detail.js"></script>
+</body>
+</html>

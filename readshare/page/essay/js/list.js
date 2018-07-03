@@ -11,6 +11,7 @@ $(function(){
     var pageIndex = 1;
     var pageSize = 10;
     var isSearch;
+
     function listEssay(type, tid) {
         isSearch = false;
         var data = "tid=" + tid + "&pageSize=" + pageSize + "&pageIndex=" + pageIndex;
@@ -32,7 +33,7 @@ $(function(){
 
                         $("#essay-body").append(
                             "<div class=\"essay\">" +
-                            "<div><h4><a href=\"\">" + essay.title +"</a></h4></div>" +
+                            "<div><h4><a href='detail.html?eid=" + essay.eid + "'>" + essay.title +"</a></h4></div>" +
                             "<br>" +
                             "<div class=\"content\">" +
                             "<span>" + essay.content +"</span>" +
@@ -82,25 +83,6 @@ $(function(){
     });
     $("#next").click(function(){
         changePage(1);
-    });
-
-    $("#showDetail").click(function(){
-        $.ajax({
-            type:"GET",
-            url:"/readshare/php/api/essay/detail.php",
-            data: data,
-            async:true,
-            success:function(result){
-                var obj = JSON.parse(result);
-                if (obj.result == 0) {
-
-                } else {
-                }
-            },
-            error:function(){
-                alert("获取失败");
-            }
-        });
     });
     listEssay("all", tid);
 });
