@@ -1,4 +1,13 @@
 $(function() {
+    if ($.cookie('uid')) {
+        $("#showRegistBtn").hide();
+        $("#showLoginBtn").hide();
+        $("#createEssay").removeClass("hide");
+        $("#personalCenter").removeClass("hide");
+        $("#createEssay").click(function(){
+            window.location = "/readshare/page/essay/create.html";
+        });
+    }
     function showModal (type) {
         if (type == "login")
             $('#loginModal').modal('show');

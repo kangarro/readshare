@@ -5,7 +5,7 @@
     include'../../common/resp.php';
     $resp = new Resp();
     $eid = $_GET['eid'];
-    $essaySql = "select * from essay e left join user u on u.uid = e.uid left join topic t on t.tid = e.tid where eid = $eid";
+    $essaySql = "select e.*, u.nickname as writer from essay e left join user u on u.uid = e.uid left join topic t on t.tid = e.tid where eid = $eid";
     $result = $db-> query($essaySql);
     $essay = $result->fetch_object();
 

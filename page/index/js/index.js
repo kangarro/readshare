@@ -54,7 +54,7 @@ $(function () {
 
                         $("#essay-body").append(
                             "<div class=\"essay\">" +
-                            "<div><h4><a href=\"\">" + essay.title +"</a></h4></div>" +
+                            "<div><h4><a href='/readshare/page/essay/detail.html?eid=" + essay.eid + "'>" + essay.title +"</a></h4></div>" +
                             "<br>" +
                             "<div class=\"content\">" +
                             "<span>" + essay.content +"</span>" +

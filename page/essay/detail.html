@@ -23,7 +23,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="#">首页 <span class="sr-only">(current)</span></a></li>
+                    <li><a href="/readshare/page/index/index.html">首页 <span class="sr-only">(current)</span></a></li>
                     <li><a href="#">热门</a></li>
                 </ul>
                 <form class="navbar-form navbar-left">
@@ -52,21 +52,15 @@
                 <p style="text-indent: 10px" id="essay-content">
                     走进记忆的深处，让人回味他的温暖与甜蜜。记忆里面总有一个高大的身影，拉着我的小手走过无数个春夏秋冬。在风雨来临时，他总是第一个出现在我的面前，用他那早已弯曲的身躯，为我遮挡数以万次的狂风暴雨。记忆深处，他总用那双早已粗糙的大手拉着我那稚嫩的小手走在乡间的小路上。感受阳光的温暖，感受空气的清新，感受乡间小路旁花朵的芳香，久久扑鼻。 记忆的深处，那个人陪伴着我度过了儿时的时光，那个高大的身影总在我的脑海中不时的浮现，浮现着我和那个身影嬉笑玩闹的画面，记忆中的那个身影，随从的士兵，在我身边保护着我。当我被欺负时，他总出现在最前面。
                 </p>
-                <span class="pull-left"><button class="btn btn-group-sm btn-success"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>  给个赞</button></span>
+                <span class="pull-left"><button id="agreeBtn" class="btn btn-group-sm btn-success"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>  给个赞</button></span>
                 <span class="pull-right" id="essay-writetime">2018-07-01</span>
                 <br>
                 <hr>
                 <div id="comment-box">
-                    <div class="media">
-                        <div class="media-left">
-                            <a href="#">
-                                <img width="40px" class="media-object" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1531066677&di=ac08c3d7c602a4cf4b3c5008a991c490&imgtype=jpg&er=1&src=http%3A%2F%2Ffiles.cnblogs.com%2Ffiles%2FE-WALKER%2Fgithub-sociocon.gif" alt="...">
-                            </a>
-                        </div>
-                        <div class="media-body">
-                            <h4 class="media-heading">小老头</h4>
-                            我觉得这篇文章真是，沁人心脾！
-                        </div>
+                    <div id="comment-input">
+                        <textarea id="comment-content" class="form-control" rows="3" placeholder="I want to say something, such as 'I love Jerry Lin'"></textarea>
+                        <br>
+                        <button type="button" class="btn btn-success pull-right" id="send-button">Send</button>
                     </div>
                 </div>
             </div>

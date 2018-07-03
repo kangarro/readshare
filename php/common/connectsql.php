@@ -1,4 +1,5 @@
 <?php
+	error_reporting(E_ALL || ~E_NOTICE);
 	header("content-type:text/html;charset=utf-8");
 	$db =@new mysqli('106.12.29.105','root','root','readshare');
 	if($db->connect_error){
