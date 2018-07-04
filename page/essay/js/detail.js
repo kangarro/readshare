@@ -69,7 +69,6 @@ $(function () {
     }
 
     function sendComment() {
-        alert(1);
         $.ajax({
             type:"POST",
             url:"/readshare/php/api/essay/comment.php",
@@ -82,7 +81,8 @@ $(function () {
                 var obj = JSON.parse(result);
                 if (obj.result == 0) {
                     console.log("ok");
-                } else {
+                } else if (obj.result == 401){
+                    alert("you have to log in !");
                 }
             },
             error:function(){
@@ -95,6 +95,11 @@ $(function () {
         agree();
     });
     $("#send-button").click(function() {
-        sendComment();
+        if($.cookie('uid')){
+            sendComment();
+        } else {
+            $('#loginModal').modal('show');
+        }
+        
     });
 });

@@ -1,10 +1,4 @@
 $(function () {
-    if ($.cookie('uid')) {
-        $("#showRegistBtn").hide();
-        $("#showLoginBtn").hide();
-        $("#createEssay").removeClass("hide");
-        $("#personalCenter").removeClass("hide");
-    }
     $.ajax({
         type:"GET",
         url:"/readshare/php/api/topic/list.php",

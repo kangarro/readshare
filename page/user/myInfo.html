@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>主页</title>
+	<link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="#">芸阅读</a>
+	    </div>
+
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav">
+	        <li><a href="/readshare/page/index/index.html">首页 <span class="sr-only">(current)</span></a></li>
+	        <li><a href="#">热门</a></li>
+	      </ul>
+	      <form class="navbar-form navbar-left">
+	        <div class="form-group">
+	          <input type="text" class="form-control" placeholder="Search" id="searchKey">
+	        </div>
+	        <button type="button" class="btn btn-success" id="searchBtn">搜索</button>
+	      </form>
+	      <form class="navbar-form navbar-right">
+	        <button type="button" class="btn btn-default" id="showLoginBtn">登录</button>
+	        <button type="button" class="btn btn-success" id="showRegistBtn">注册</button>
+			  <button type="button" class="btn btn-default hide" id="createEssay">写文章</button>
+			  <button type="button" class="btn btn-success hide" id="personalCenter">个人中心</button>
+	      </form>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+
+	<div class="container">
+		<div class="col-md-3">
+			<div class="panel panel-success ">
+				<div class="panel-heading">Personal Infomation</div>
+			    <div class="panel-body">
+			    	<h4 id="my-name">Zhong-dong Xie</h4>
+			    	<p>profile:<span id="my-profile"></span></p>
+			    	<button class="btn btn-success btn-xs" id="editBtn">edit</button>
+			    	<button class="btn btn-success btn-xs" id="pswBtn">password</button>
+			    </div>
+			    <div class="panel-footer"></div>
+			</div>
+			<div class="panel panel-success ">
+				<div class="panel-heading">Follows</div>
+			    <div class="panel-body">
+			    	<span class="col-sm-5 text-center"><h5>Follower</h5><span id="my-follower">20</span></span>
+			    	<span class="col-sm-5 text-center"><h5>Following</h5><span id="my-follow-to">5</span></span>
+			    </div>
+			    <div class="panel-footer"></div>
+			</div>
+		</div>
+
+		<div class="col-md-9">
+			<div class="panel panel-success ">
+				<div class="panel-heading">My Essays</div>
+			    <div class="panel-body">
+			    	<div id="essay-body">
+			    		
+			    	</div>
+			    </div>
+			    <div class="panel-footer">Panel footer</div>
+			</div>
+		</div>
+	</div>	
+
+	<div class="modal fade" id="editModal">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">Modify Your Infomation</h4>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="form-group">
+							<label for="username">Nickname</label>
+							<input type="text" class="form-control" id="nickname" placeholder="nickname">
+						</div>
+						
+						<label for="profile">Profile</label>
+						<br>
+						 <textarea id="profile" class="form-control" rows="10" placeholder="Tell us who you are."></textarea>
+						 <br>
+					</form>
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+					<button type="button" class="btn btn-success" id="updateBtn">Ok</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
+	<div class="modal fade" id="pswModal">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">Change Password</h4>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="form-group">
+							<label for="password">New Password</label>
+							<input type="password" class="form-control" id="password" placeholder="Password">
+						</div>
+						<div class="form-group">
+							<label for="password">Repeat</label>
+							<input type="password" class="form-control" id="r_password" placeholder="Repeat">
+						</div>
+						<div class="alert alert-warning hide" role="alert" id="errorMsg"></div>
+					</form>
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+					<button type="button" class="btn btn-success" id="updatePswBtn">Ok</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	
+	<script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="../common/js/login.js"></script>
+	<script src="js/myInfo.js"></script>
+</body>
+</html>

@@ -9,6 +9,12 @@
     $sql = "select 1 as commentCount, e.agree, t.title as topic , e.eid,e.title,e.content,u.nickname as writer,e.writetime from essay e ";
     $sql = $sql."LEFT JOIN user u ON e.uid = u.uid LEFT JOIN topic t ON t.tid = e.tid WHERE 1=1 ";
     $searchKey = $_GET['searchKey'];
+    $isMine = $_GET['isMine'];
+    if (isset($isMine)) {
+        session_start();
+        $uid = $_SESSION['uid'];
+        $sql = $sql."AND u.uid = $uid ";
+    }
     if (isset($searchKey)) {
          $sql = $sql."AND e.title like '%$searchKey%' or u.nickname like '%$searchKey%' ";
     }

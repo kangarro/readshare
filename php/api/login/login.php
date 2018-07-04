@@ -24,6 +24,8 @@
             $resp->data = $result->fetch_object();
             $resp->result = 0;
             //save session on server
+            setcookie('uid', $uid, time() + 60);
+
             session_start();
             $_SESSION['uid'] = $resp->data->uid;
         } else {

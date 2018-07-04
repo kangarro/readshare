@@ -9,11 +9,15 @@
     $content = $_POST['content'];
     session_start();
     $uid = $_SESSION['uid'];
-    $sql = "insert into comment (content, eid, uid, created) values('$content', $eid, $uid, now())";
-
-    $db->query($sql);
     $resp = new Resp();
-    $resp->result = 0;
+    if (!$uid) {
+        $resp->result = 401;
+    } else {
+        $sql = "insert into comment (content, eid, uid, created) values('$content', $eid, $uid, now())";
+
+        $db->query($sql);
+        $resp->result = 0;
+    }
 
     echo json_encode($resp, JSON_UNESCAPED_UNICODE);
 ?>

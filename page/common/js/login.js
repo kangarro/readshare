@@ -7,6 +7,9 @@ $(function() {
         $("#createEssay").click(function(){
             window.location = "/readshare/page/essay/create.html";
         });
+        $("#personalCenter").click(function(){
+            window.location = "/readshare/page/user/myInfo.html";
+        });
     }
     function showModal (type) {
         if (type == "login")
@@ -37,7 +40,7 @@ $(function() {
                 if (obj.result != 0) {
                     $("#loginMsg").removeClass("hide");
                 } else {
-                    $.cookie('uid', obj.data.uid, { path: '/', expires: 10 });
+                    $.cookie('uid', obj.data.uid, { path: '/'});
                     $('#loginModal').modal('hide');
                     $("#showRegistBtn").hide();
                     $("#showLoginBtn").hide();
