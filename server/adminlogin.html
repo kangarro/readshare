@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--引入放前面-->
+		<link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+		<style type="text/css">
+			.box{
+				width: 350px;
+				height: 200px;
+				margin:150px auto;
+				padding:20px;
+				background-color:pink;
+			}
+			.form-control{
+				width:70%;
+			}
+			button{
+				margin-left:80px;
+			}
+		</style>
+
+	</head>
+	<body>
+		<div class="box">
+			<form>
+			  <div class="form-group">
+			    <label for="exampleInputEmail1">用户名</label>
+			    <input type="email" class="form-control" id="admin" >
+			  </div>
+			  <div class="form-group">
+			    <label for="exampleInputPassword1">密码</label>
+			    <input type="password" class="form-control" id="password" >
+			  </div>
+			  <button type="button" class="btn btn-default">登录</button>
+			</form>
+		</div>
+	</body>
+	<script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><br />
+	<script type="text/javascript">
+		$(function(){
+			$(".btn").click(function(){
+				var admin =$("#admin").val();
+				var psw=$("#password").val();
+				$.ajax({
+					url:"adminlogin.php",
+					type:"Post",
+					data:{
+						"admin":admin,
+						"psw":psw
+					},
+					success:function(result){
+						if(result=="成功"){
+							window.location="home.php";
+						}else{
+							alert("用户名或密码错误");
+						}
+					},
+					error:function(){
+						alert("获取错误");
+					}
+				})
+			})
+			
+		})
+	</script>
+</html>
