@@ -41,6 +41,7 @@ $(function() {
                     $("#loginMsg").removeClass("hide");
                 } else {
                     $.cookie('uid', obj.data.uid, { path: '/'});
+
                     $('#loginModal').modal('hide');
                     $("#showRegistBtn").hide();
                     $("#showLoginBtn").hide();

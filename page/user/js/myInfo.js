@@ -13,8 +13,8 @@ $(function() {
 	            	user = obj.data;
 	                $("#my-name").html(obj.data.nickname);
 	                $("#my-profile").html(obj.data.profile == null ? "nothing." : obj.data.profile);
-	                $("#my-follower").html(obj.data.followerCount);
-	                $("#my-follow-to").html(obj.data.followToCount);
+	                $("#my-follower").html("<a href='/readshare/page/user/list.html?type=1'>" + obj.data.followerCount + "</a>");
+	                $("#my-follow-to").html("<a href='/readshare/page/user/list.html?type=2'>" + obj.data.followToCount + "</a>");
 	            } else {
 
 	            }
