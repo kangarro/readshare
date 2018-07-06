@@ -1,4 +1,3 @@
-<!--提交按钮不要用submit-->
 <!DOCTYPE html>
 <html>
 	<head>
@@ -28,6 +27,7 @@
 
 	<body>
 		<div class="box-body">
+			
 			<div class="panel panel-primary">
 		      	<div class="panel-heading">
 		        	<h3 class="panel-title">查询条件</h3>
@@ -35,35 +35,39 @@
 		      	<div class="panel-body">
 		        	<form class="navbar-form navbar-left" role="search">
 						<div class="input-group">
-							<span class="input-group-addon" id="basic-addon1">管理员编号</span>
-							<input type="text" class="form-control"  aria-describedby="basic-addon1" id="aid">
+							<span class="input-group-addon" id="basic-addon1">昵称</span>
+							<input type="text" class="form-control"  aria-describedby="basic-addon1" id="nickname">
 						</div>
 						<div class="input-group">
-							<span class="input-group-addon" id="basic-addon1">管理员名</span>
-							<input type="text" class="form-control"  aria-describedby="basic-addon1" id="auser">
+							<span class="input-group-addon" id="basic-addon1">用户名</span>
+							<input type="text" class="form-control"  aria-describedby="basic-addon1" id="username">
 						</div>
 						<button type="button" class="btn btn-default search" id="search">搜索</button>
 					</form>
 		      	</div>
 		    </div>
-		    
-		    <div class="panel panel-primary">
-		      <div class="panel-heading">查询结果</div>
-		      <!-- Table -->
-		      <table class="table">
-		        <thead>
-		          <tr>
-		            <th >管理员编号</th>
-		            <th >管理员名</th>
-		            <th >管理密码</th>
-		            <th >操作</th>
-		          </tr>
-		        </thead>
-		        <tbody>
-		          
-		        </tbody>
-		      </table>
-   			 </div>
+			
+			<div class="panel panel-primary">
+			      <div class="panel-heading">用户表</div>
+			      <!-- Table -->
+			      <table class="table">
+			        <thead>
+			          <tr>
+			            <th >用户编号</th>
+			            <th >用户名</th>
+			            <th>用户昵称</th>
+			            <th>用户密码</th>
+			            <th>自我简介</th>
+			            <th>操作</th>
+			          </tr>
+			        </thead>
+			        <tbody>
+			        </tbody>
+			      </table>
+   				</div>
+   				
+   			</div>
+   			
 		</div>
 		<script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 		<script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
@@ -72,16 +76,16 @@
 			$(function(){
 				$("#search").click(function(){
 					$("tbody").empty();
-					var	aid=$("#aid").val();
-					var	auser=$("#auser").val();
+					var	nickname=$("#nickname").val();
+					var	username=$("#username").val();
 					$.ajax({
 						type:"POST",
-						url:"searchadmin.php",
+						url:"searchuser.php",
 						async:true,
 						dataType:"json",
 						data:{
-							"aid":aid,
-							"auser":auser
+							"nickname":nickname,
+							"username":username,
 						},
 						success:function(result){
 							if(result==""){
@@ -91,20 +95,18 @@
 								for(var i of result){
 									 tr=$("<tr></tr>").appendTo($("tbody"));
 									 arr=i.split(',');
-									for(var k in arr){
+									for(var k=0;k<arr.length;k++){
+										var deletduid = arr[0];
 										var td=$("<td></td>").appendTo(tr);
-										if(k==arr.length-1){
-											var btn=$("<button></button>").appendTo(td);
-											btn.append("删除");
-											btn.val(arr[k]);
-											btn.addClass("delete btn-danger btn btn-default");
-										}else{
 											td.append(arr[k]);
-										}
 									}
+									var td=$("<td></td>").appendTo(tr);
+									var btn=$("<button></button>").appendTo(td);
+									btn.append("删除");
+									btn.val(deletduid);
+									btn.addClass("delete btn-danger btn btn-default");
 								}
 							}
-							
 						},
 						error:function(){
 							alert("11");
@@ -117,7 +119,7 @@
 					var tr=$(this).parent().parent();
 					$.ajax({
 						type:"post",
-						url:"deletepassage.php",
+						url:"deleteadmin.php",
 						async:true,
 						data:{
 							"value":val
@@ -126,7 +128,7 @@
 							tr.hide();
 						},
 						error:function(){
-							
+							alert("获取错误");
 						}
 					})
 				})

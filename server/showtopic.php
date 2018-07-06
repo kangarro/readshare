@@ -4,8 +4,8 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<style type="text/css">
-			.box{
-				width: 600px;
+			.box-body{
+				width: 1000px;
 				height: 900px;
 				margin:0 auto;
 			}
@@ -32,9 +32,9 @@
 		<link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 	</head>
 	<body>
-		<div class="box">
+		<div class="box-body">
 			<a href="javascript:void(0)" class="btn btn-primary" data-toggle="modal" data-target="#Modal" style="margin:20px 80px">新增</a>
-			<div class="modal fade" id="Modal">  
+			<div class="modal fade" id="Modal" data-backdrop="false" >  
 				    <div class="modal-dialog" style="width: 40%;">  
 				        <div class="modal-content">  
 				            <div class="modal-header">  
@@ -86,6 +86,7 @@
 			        </tbody>
 			      </table>
    				</div>
+   				
    			</div>
    			
 		</div>
@@ -121,7 +122,7 @@
 							"topic":topic
 						},
 						success:function(result){
-							window.location="showtopic.php";
+							$(".box-body").load("showtopic.php");
 						}
 					})
 				})

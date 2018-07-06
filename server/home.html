@@ -3,24 +3,60 @@
 	<head>
 		<meta charset="UTF-8">
 		<link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-		<link rel="stylesheet" href="css/index.css">
 		<title></title>
 		<style type="text/css">
-			
+			.box{
+				width: 1000px;
+				height: 900px;
+				margin:0 auto;
+			}
 		</style>
 	</head>
 	<body>
 		<div class="box">
-			<div class="list-group">
-				<a href="#" class="list-group-item active" id="topic-title">
-					分类
+			<div class="panel panel-primary">
+			      <div class="panel-heading">
+			        <h3 class="panel-title">欢迎您</h3>
+			      </div>
+			      <div class="panel-body">
+			        	<ul class="nav nav-pills">
+						  <li role="presentation" class="active"><a href="#" id="showessay">文章管理</a></li>
+						  <li role="presentation"><a href="#" id="showtopic">主题管理</a></li>
+						  <li role="presentation"><a href="#" id="showuser">用户管理</a></li>
+						  <li role="presentation"><a href="#" id="showadmin">管理员管理</a></li>
+						</ul>	
+			      </div>
 			</div>
-			<div class="content">
-				
+			<div class="body">
 			</div>
 		</div>
 		<script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 		<script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 		<script src="https://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("li a").click(function(){
+					$(this).parent().addClass("active");
+					$(this).parent().siblings().removeClass("active");
+					var action = $(this).attr("id");
+					window.location.hash=action;
+					loadInner(action);
+				})
+				function loadInner(sId){
+					var action = window.location.hash;
+					var path;
+					switch(action){
+						case "#showessay":path="showessay.php";break;
+						case "#showtopic":path="showtopic.php";break;
+						case "#showadmin":path="showadmin.php";break;
+						case"#showuser":path="showuser.php";break;
+					}
+					$(".body").load(path);
+				}
+				var action=window.location.hash;
+				loadInner(action);
+			})
+			
+		</script>
 	</body>
 </html>

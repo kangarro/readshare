@@ -5,7 +5,7 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<style type="text/css">
-			.box{
+			.box-body{
 				width: 1000px;
 				height: 900px;
 				margin:0 auto;
@@ -27,7 +27,7 @@
 	</head>
 
 	<body>
-		<div class="box">
+		<div class="box-body">
 			<div class="panel panel-primary">
 		      	<div class="panel-heading">
 		        	<h3 class="panel-title">查询条件</h3>
@@ -74,7 +74,7 @@
 		            <th >标题</th>
 		            <th >作者</th>
 		            <th >发表时间</th>
-		            <th></th>
+		            <th>操作</th>
 		          </tr>
 		        </thead>
 		        <tbody>
