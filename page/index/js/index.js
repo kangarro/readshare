@@ -56,7 +56,7 @@ $(function () {
                             "<div class=\"essay-footer\">" +
                             "<br>" +
                             "<span class='pull-left'>分类：<span class='essay-topic'>" + essay.topic + "</span></span>" +
-                            "<span class=\"pull-right\">作者：<a href=''>"+ essay.writer+ "</a> &nbsp;&nbsp;" + essay.writetime + "</span>" +
+                            "<span class=\"pull-right\">作者：<a href='/readshare/page/user/userDetail.html?uid=" + essay.uid + "'>"+ essay.writer+ "</a> &nbsp;&nbsp;" + essay.writetime + "</span>" +
                             "</div>" +
                             "</div>" +
                             "<br>" +

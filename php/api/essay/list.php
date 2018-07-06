@@ -6,13 +6,16 @@
     include'../../common/PageData.php';
     $resp = new Resp();
 
-    $sql = "select 1 as commentCount, e.agree, t.title as topic , e.eid,e.title,e.content,u.nickname as writer,e.writetime from essay e ";
+    $sql = "select e.uid, 1 as commentCount, e.agree, t.title as topic , e.eid,e.title,e.content,u.nickname as writer,e.writetime from essay e ";
     $sql = $sql."LEFT JOIN user u ON e.uid = u.uid LEFT JOIN topic t ON t.tid = e.tid WHERE 1=1 ";
     $searchKey = $_GET['searchKey'];
-    $isMine = $_GET['isMine'];
-    if (isset($isMine)) {
-        session_start();
-        $uid = $_SESSION['uid'];
+    $isUid = $_GET['isUid'];
+    if ($isUid == 'Y') {
+        $uid = $_GET['uid'];
+        if (!isset($uid)){
+            session_start();
+            $uid = $_SESSION['uid'];
+        }
         $sql = $sql."AND u.uid = $uid ";
     }
     if (isset($searchKey)) {
@@ -25,6 +28,8 @@
     }
     $pageIndex = $_GET['pageIndex'];
     $pageSize = $_GET['pageSize'];
+
+    $sql = $sql."ORDER BY e.writetime DESC ";
     if (isset($pageIndex)){
         $offset = $pageSize * ($pageIndex - 1);
         $countSql = "SELECT COUNT(1) total FROM (".$sql.") a";
@@ -35,6 +40,8 @@
 
         $sql = $sql."LIMIT $offset, $pageSize ";
     }
+
+    
     $result = $db-> query($sql);
     while($obj = $result->fetch_object()){
         $arr[]=$obj;

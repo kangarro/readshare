@@ -5,11 +5,11 @@
     include'../../common/resp.php';
     $resp = new Resp();
     $eid = $_GET['eid'];
-    $essaySql = "select e.*, u.nickname as writer from essay e left join user u on u.uid = e.uid left join topic t on t.tid = e.tid where eid = $eid";
+    $essaySql = "select e.*, u.nickname as writer, t.title as topic from essay e left join user u on u.uid = e.uid left join topic t on t.tid = e.tid where eid = $eid";
     $result = $db-> query($essaySql);
     $essay = $result->fetch_object();
 
-    $commentSql = "select * from comment c left join user u on u.uid = c.uid where c.eid = $eid";
+    $commentSql = "select * from comment c left join user u on u.uid = c.uid where c.eid = $eid order by created asc";
     $result = $db-> query($commentSql);
     while($obj = $result->fetch_object()) {
         $arr[] = $obj;

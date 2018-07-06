@@ -28,7 +28,7 @@ $(function() {
     $.ajax({
         type:"GET",
         url:"/readshare/php/api/essay/list.php",
-        data: "isMine=Y",
+        data: "isUid=Y",
         async:true,
         success:function(result){
             console.log(result);

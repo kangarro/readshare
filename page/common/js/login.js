@@ -1,8 +1,9 @@
 $(function() {
-    if ($.cookie('uid')) {
+    if ($.cookie('uid') && $.cookie('uid') != null) {
         $("#showRegistBtn").hide();
         $("#showLoginBtn").hide();
         $("#createEssay").removeClass("hide");
+        $("#logoutBtn").removeClass("hide");
         $("#personalCenter").removeClass("hide");
         $("#createEssay").click(function(){
             window.location = "/readshare/page/essay/create.html";
@@ -41,7 +42,7 @@ $(function() {
                     $("#loginMsg").removeClass("hide");
                 } else {
                     $.cookie('uid', obj.data.uid, { path: '/'});
-
+                    $('#logoutBtn').modal('hide');
                     $('#loginModal').modal('hide');
                     $("#showRegistBtn").hide();
                     $("#showLoginBtn").hide();
@@ -54,7 +55,20 @@ $(function() {
             }
         })
     });
-
+    $("#logoutBtn").click(function(){
+        $.ajax({
+            type:"POST",
+            url:"/readshare/php/api/login/logout.php",
+            async:true,
+            success:function(result){
+                console.log(result);
+                $.cookie('uid', null, { path: '/'});
+            },
+            error:function(){
+                alert("登录失败");
+            }
+        })
+    });
     $("#registBtn").click(function(){
         $.ajax({
             type:"POST",

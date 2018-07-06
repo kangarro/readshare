@@ -7,7 +7,8 @@ $(function () {
     }
     var essay;
     var eid = location.search.substr(1).split("=")[1];
-    $.ajax({
+    function init() {
+        $.ajax({
         type:"GET",
         url:"/readshare/php/api/essay/detail.php",
         data: "eid=" + eid,
@@ -48,6 +49,8 @@ $(function () {
             alert("获取失败");
         }
     });
+    }
+    init();
 
     function agree(){
         $.ajax({
@@ -59,6 +62,7 @@ $(function () {
                 var obj = JSON.parse(result);
                 if (obj.result == 0) {
                     $("#agreeBtn").attr("disabled", "true");
+                    init();
                 } else {
                 }
             },
@@ -81,6 +85,8 @@ $(function () {
                 var obj = JSON.parse(result);
                 if (obj.result == 0) {
                     console.log("ok");
+                    $("#comment-content").val('');
+                    init();
                 } else if (obj.result == 401){
                     alert("you have to log in !");
                 }

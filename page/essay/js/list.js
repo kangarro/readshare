@@ -42,7 +42,7 @@ $(function(){
                             "<br>" +
                             "<span class='pull-left' ><span class=\"glyphicon glyphicon-thumbs-up\" aria-hidden=\"true\"></span>&nbsp;(" + essay.agree + ")</span></span>" +
                             "<span class='pull-left' >&nbsp;&nbsp;<span class=\"glyphicon glyphicon-pencil\" aria-hidden=\"true\"></span>&nbsp;(" + essay.commentCount + ")</span></span>" +
-                            "<span class=\"pull-right\">作者：<a href=''>"+ essay.writer+ "</a> &nbsp;&nbsp;" + essay.writetime + "</span>" +
+                            "<span class=\"pull-right\">作者：<a href='/readshare/page/user/userDetail.html?uid="+ essay.uid +"'>"+ essay.writer+ "</a> &nbsp;&nbsp;" + essay.writetime + "</span>" +
                             "</div>" +
                             "</div>" +
                             "<br>" +
