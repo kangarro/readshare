@@ -10,6 +10,7 @@ $(function() {
 	            var obj = JSON.parse(result);
 	            if (obj.result == 0) {
 	                getMyINfo();
+	                window.reload();
 	            } else {
 	            }
 	        },

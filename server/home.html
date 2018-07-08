@@ -10,7 +10,12 @@
 				height: 900px;
 				margin:0 auto;
 			}
+			#adminhide{
+				display: none;
+			}
+
 		</style>
+		
 	</head>
 	<body>
 		<div class="box">
@@ -23,7 +28,8 @@
 						  <li role="presentation" class="active"><a href="#" id="showessay">文章管理</a></li>
 						  <li role="presentation"><a href="#" id="showtopic">主题管理</a></li>
 						  <li role="presentation"><a href="#" id="showuser">用户管理</a></li>
-						  <li role="presentation"><a href="#" id="showadmin">管理员管理</a></li>
+						  <li role="presentation"><a href="#" id="modifyhtml">修改密碼</a></li>
+						  <li role="presentation" id="adminhide"><a href="#" >管理员管理</a></li>
 						</ul>	
 			      </div>
 			</div>
@@ -35,6 +41,9 @@
 		<script src="https://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 		<script type="text/javascript">
 			$(function(){
+				if($.cookie('aid')==0){
+						$("#adminhide").show();
+					}
 				$("li a").click(function(){
 					$(this).parent().addClass("active");
 					$(this).parent().siblings().removeClass("active");
@@ -50,6 +59,7 @@
 						case "#showtopic":path="showtopic.php";break;
 						case "#showadmin":path="showadmin.php";break;
 						case"#showuser":path="showuser.php";break;
+						case"#modifyhtml":path="modifypass.html";break;
 					}
 					$(".body").load(path);
 				}

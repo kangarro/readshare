@@ -42,7 +42,7 @@ $(function() {
                     $("#loginMsg").removeClass("hide");
                 } else {
                     $.cookie('uid', obj.data.uid, { path: '/'});
-                    $('#logoutBtn').modal('hide');
+                    $('#logoutBtn').removeClass('hide');
                     $('#loginModal').modal('hide');
                     $("#showRegistBtn").hide();
                     $("#showLoginBtn").hide();
@@ -62,7 +62,14 @@ $(function() {
             async:true,
             success:function(result){
                 console.log(result);
-                $.cookie('uid', null, { path: '/'});
+                alert("已注销");
+                $.cookie('uid', null, { path: '/', expires: 0});
+                $('#logoutBtn').addClass('hide');
+                $("#showRegistBtn").show();
+                $("#showLoginBtn").show();
+                $("#createEssay").addClass("hide");
+                $("#personalCenter").addClass("hide");
+
             },
             error:function(){
                 alert("登录失败");
