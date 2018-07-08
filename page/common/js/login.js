@@ -1,4 +1,4 @@
-$(function() {
+$(functinow()on() {now()
     if ($.cookie('uid') && $.cookie('uid') != null) {
         $("#showRegistBtn").hide();
         $("#showLoginBtn").hide();
