@@ -24,12 +24,13 @@ $(function () {
                 $('#essay-writetime').html(essay.writetime);
                 $('#essay-topic').html(essay.topic);
                 $('#essay-content').html(essay.content);
+                $('#essay-agree').html(essay.agree);
                 console.log(essay);
                 var comments = obj.arrData;
                 if (comments){
                     console.log(comments);
                     for (comment of comments) {
-                        $('#send-button').after('<br><div class="media">'
+                        $('#commentbox').append('<br><div class="media">'
                             + '<div class="media-left">'
                             +     '<a href="#">'
                             +         '<img width="40px" class="media-object" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1531066677&di=ac08c3d7c602a4cf4b3c5008a991c490&imgtype=jpg&er=1&src=http%3A%2F%2Ffiles.cnblogs.com%2Ffiles%2FE-WALKER%2Fgithub-sociocon.gif" alt="...">'
@@ -85,7 +86,7 @@ $(function () {
                 var obj = JSON.parse(result);
                 if (obj.result == 0) {
                     console.log("ok");
-                    $("#comment-content").val('');
+                    $("#commentbox").html('');
                     init();
                 } else if (obj.result == 401){
                     alert("you have to log in !");

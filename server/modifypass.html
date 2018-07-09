@@ -1,0 +1,81 @@
+<!--提交按钮不要用submit-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box-body{
+				width: 1000px;
+				height: 900px;
+				margin:0 auto;
+			}
+			.input-group{
+				margin-right: 20px;
+			}
+			.search{
+				width: 100px;
+			}
+			select{
+				width: 70px;
+				height: 30px;
+				border-radius: 3px;
+				border-color:#CBCBCB ;
+			}
+		</style>
+	<link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="box-body">
+			<div class="panel panel-primary">
+		      	<div class="panel-heading">
+		        	<h3 class="panel-title">修改密碼</h3>
+		      	</div>
+		      	<div class="panel-body">
+		        	<form class="navbar-form navbar-left" role="search">
+						<div class="input-group">
+							<span class="input-group-addon" id="basic-addon1">旧密碼</span>
+							<input type="password" class="form-control"  aria-describedby="basic-addon1" id="oldpass">
+						</div>
+						<div class="input-group">
+							<span class="input-group-addon" id="basic-addon1">新密码</span>
+							<input type="password" class="form-control"  aria-describedby="basic-addon1" id="newpass">
+						</div>
+						<button type="button" class="btn btn-default search" id="submit">提交</button>
+					</form>
+		      	</div>
+		    </div>
+		    
+		</div>
+		<script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+		<script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+		<script src="https://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("#submit").click(function(){
+					var	oldpass=$("#oldpass").val();
+					var	newpass=$("#newpass").val();
+					$.ajax({
+						type:"POST",
+						url:"modifypass.php",
+						async:true,
+						data:{
+							"oldpass":oldpass,
+							"newpass":newpass
+						},
+						success:function(result){
+							alert(result);
+							$("#oldpass").val("");
+							$("#newpass").val("");
+						},
+						error:function(){
+							alert("11");
+						}
+					});
+				})
+				
+			})
+			
+		</script>
+	</body>
+</html>
