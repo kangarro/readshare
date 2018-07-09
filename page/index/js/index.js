@@ -45,7 +45,7 @@ $(function () {
                 if (obj.result == 0) {
                     $("#essay-body").html("");
                     for (essay of obj.data) {   
-                        essay.content = essay.content.substr(0,200) + "...";
+                        essay.content = essay.content.substr(0,100) + "...";
                         $("#essay-body").append(
                             "<div class=\"essay\">" +
                             "<div><h4><a href='/readshare/page/essay/detail.html?eid=" + essay.eid + "'>" + essay.title +"</a></h4></div>" +

@@ -34,7 +34,7 @@ $(function(){
                     $("#topicTitle").html(obj.data[0].topic + "&nbsp;&nbsp;(总共" + obj.pageData.total + "篇文章)");
                     for (essay of obj.data) {
                         console.log(essay);
-                        essay.content = essay.content.substr(0,200) + "...";
+                        essay.content = essay.content.substr(0,100) + "...";
                         $("#essay-body").append(
                             "<div class=\"essay\">" +
                             "<div><h4><a href='detail.html?eid=" + essay.eid + "'>" + essay.title +"</a></h4></div>" +
