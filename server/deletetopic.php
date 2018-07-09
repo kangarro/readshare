@@ -1,7 +1,7 @@
 <?php
 	include'connectsql.php';
 	$tid=$_POST['tid'];
-	$sql="delete from topic where tid='$tid'";
+	$sql="select *  from topic,essay where tid='$tid'";
 	$re=$db->query($sql);
 	if($re){
 		echo"删除成功";
