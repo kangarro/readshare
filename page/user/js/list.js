@@ -67,13 +67,29 @@ $(function(){
 	                var btns = $("[flag]");
 	                console.log(btns.length);
 	                for (btn of btns) {
-	                	console.log(btn.getAttribute('flag'));
+	                	var uid = btn.getAttribute('uid');
 	                	if (btn.getAttribute('flag') == 'd') {
-	                		btn.onclick = function(){alert(1)};
+	                		btn.addEventListener('click', function(){})
+	                		btn.onclick = (function(uid){
+	                			var _uid = uid;
+	                			return function(){
+	                				window.location = "/readshare/page/user/userDetail.html?uid=" + _uid;
+	                			}
+	                		})(uid);
 	                	} else if (btn.getAttribute('flag') == 'f') {
-	                		btn.onclick = function(){follow(btn.getAttribute('uid'))};
+	                		btn.onclick = (function(uid){
+	                			var _uid = uid;
+	                			return function(){
+	                				follow(_uid);
+	                			}
+	                		})(uid);
 	                	} else {
-	                		btn.onclick = function(){unfollow(btn.getAttribute('uid'))};
+	                		btn.onclick = (function(uid){
+	                			var _uid = uid;
+	                			return function(){
+	                				unfollow(_uid);
+	                			}
+	                		})(uid);
 	                	}
 	                }
 	            } else {
