@@ -40,6 +40,7 @@ $(function() {
 	                	$("#profile-panel").append('<span class="col-sm-12 followBtn"><button class="col-sm-12 btn btn-success" id="followBtn">Follow it</button></span>');
 	                	$("#followBtn").click(function() {
 	                		follow(uid);
+	                		getMyINfo();
 	                	});
 	                }
 	            } else {
