@@ -6,10 +6,13 @@ $(function(){
         $("#personalCenter").removeClass("hide");
     }
 
-
+	//获取链接参数
     var tid = location.search.substr(1).split("=")[1];
+//   页码
     var pageIndex = 1;
+    //页面容量
     var pageSize = 10;
+    //是否搜索
     var isSearch;
 
     function listEssay(type, tid) {
@@ -52,12 +55,11 @@ $(function(){
                             "<hr>"
                         );
                     }
-                    $("#pre").removeAttr("disabled");
+
                     $("#next").removeAttr("disabled");
-                    if (pageIndex == 1) {
-                        $("#pre").attr("disabled", "true");
-                    }
+
                     console.log(obj.pageData.total - pageIndex * pageSize);
+                    //如果没有更多就不能加载更多
                     if (obj.pageData.total <= pageIndex * pageSize) {
                         $("#next").attr("disabled", "true");
                     }
@@ -81,9 +83,7 @@ $(function(){
     $("#searchBtn").click(function() {
         listEssay("search", tid);
     });
-    $("#pre").click(function(){
-        changePage(-1);
-    });
+   
     $("#next").click(function(){
         changePage(1);
     });

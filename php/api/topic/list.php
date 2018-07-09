@@ -17,6 +17,8 @@
     }
 
     $resp->data = $arr;
+//  result为0成功
     $resp->result = 0;
+    //防止乱码
     echo json_encode($resp, JSON_UNESCAPED_UNICODE);
 ?>

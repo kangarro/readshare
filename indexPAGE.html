@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.css"/>
+		<style type="text/css">
+			.nav{
+				height: 80px;
+				border-bottom: 2px solid #9e9e9e5e;
+				line-height: 80px;
+				position: fixed;
+				width:100%;
+				z-index: 2;
+			}
+			.logo img{
+				width: 80px;
+				height: 60px;
+			}
+			.logo,.homepage,.hotspot,.search,.resign,.login{
+				display: inline-block;
+				margin-left:68px;
+			}
+			.search input{
+				width: 200px;
+				height: 35px;
+			}
+			.homepage,.hotspot{
+				width: 80px;
+				height: 35px;
+			}
+			.nav a{
+				font-size:18pt;
+				text-decoration: none;
+				font-weight: bold;
+			}
+			.search .form-control-feedback{
+				pointer-events: all;
+				cursor: pointer;
+			}
+			.login{
+				position:relative;
+				right: -375px;
+			}
+			.resign{
+				position:relative;
+				right: -350px;
+			}
+			.modal-dialog{
+				width: 500px;
+			}
+			.modal-body{
+				height: 120px;
+			}
+			.resign-body{
+				height: 150px;
+			}
+			table{
+				border: none;
+			}
+			.modal-dialog td{
+				width: 150px;
+				height: 47px;
+				text-align: right;
+			}
+			label{
+				font-size: 12pt;
+				font-family: "宋体";
+			}
+			.modal-dialog input{
+				width: 184px;
+    			height: 36px;
+			}
+			.label{
+				display: inline-block;
+				width: 140px;
+				height: 36px;
+				line-height: 36px;
+				border: none;
+			}
+			/*分类列表*/
+			.classify{
+				width: 200px;
+				height: 600px;
+				background: lightgrey;
+				position: relative;
+				top:20px;
+				left:25px;
+				display: inline-block;
+				z-index: 0;
+			}
+			.classify ul{
+				list-style: none;
+				width: 200px;
+				height: 600px;
+			}
+			.classify li{
+				font-size:20pt;
+				display: inline-block;
+				width: 100px;
+				height: 60px;
+			}
+			/*中心文章*/
+			.content{
+				display: inline-block;
+				width: 600px;
+				height: 600px;
+				position:relative;
+				left:100px;
+				top:200px;
+				background:lightblue;
+				z-index: 0;
+			}
+			.content div{
+				width: 500px;
+				height: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="nav" class="nav">
+			<span class="logo">
+				<img src="img/share.jpg" alt="" />
+			</span>
+			<div class="homepage">
+				<a href="">首页</a>
+			</div>
+			<div class="hotspot">
+				<a href="">热点</a>
+			</div>
+ 
+			<div class="search">
+				<div class="form-group has-success has-feedback">
+				  <input type="text" class="form-control" id="inputSuccess5" aria-describedby="inputSuccess5Status" />
+				  <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true" id="searchlogo"></span>
+				</div>
+			</div>
+			<!--登录键-->
+			<div class="login">
+				<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+						  		登录
+							</button>
+				<div class="modal fade" data-backdrop="false" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+								<h4 class="modal-title" id="myModalLabel">登录</h4>
+							</div>
+			
+							<form>
+								<div class="modal-body">
+									<table>
+										<tr>
+											<td><label for="auser">电子邮件:</label></td>
+											<td><input type="email" name="" id="auser" value="" required="required" /></td>
+										</tr>
+										<tr>
+											<td><label for="apsw">密码：</label></td>
+											<td><input type="password" name="" id="apsw" value="" required="required" /></td>
+										</tr>
+									</table>
+								</div>
+								<div class="modal-footer">
+									<!--类型要为button-->
+									<button type="button" class="btn btn-primary" name="action" value="login" id="loginbtn">登录</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="resign">
+				<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#resign">
+			  		注册
+				</button>
+				<!--模态框弹出被遮罩要用data-backdrop="false"取消自动添加遮罩-->
+				<div class="modal fade" data-backdrop="false" id="resign" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				  <div class="modal-dialog" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				        <h4 class="modal-title" id="myModalLabe////l">注册</h4>
+				      </div>
+				      <form  >
+				      	<div class="resign-body">
+				      		<table >
+				      			<tr>
+				      				<td><label for="aauser">电子邮件：</label></td>
+				      				<td><input type="email" name="" id="aauser" value="" required="required"/></td>
+				      				<td><button class="label label-danger" id="sendcheck">发送验证码</button></td>
+				      			</tr>
+				      			<tr>
+				      				<td><label for="nickname">昵称：</label></td>
+				      				<td> <input type="text" name="" id="nickname" value="" required="required"/></td>
+				      			</tr>
+				      			<tr>
+				      				<td><label for="checkma">验证码：</label></td>
+				      				<td> <input type="text" name="" id="checkma" value="" /></td>
+				      			</tr>
+				      			<tr>
+				      				<td><label for="aapsw">密码：</label></td>
+				      				<td><input type="password" name="" id="aapsw" value="" required="required" /></td>
+				      			</tr>
+				      		</table>
+				      	</div>
+				     	 <div class="modal-footer">
+				     	 	<!--button type为button required失效 若button type为submit ajax提交不了 会一直进入error函数-->
+							<button type="submit" class="btn btn-primary" value="resign" name="action" id="resignbtn">注册</button>			       
+				      	</div>
+				      </form>
+				    </div>
+				  </div>
+				</div>
+			</div>
+		</div>
+		
+		<!--分类-->
+		
+		
+		<div class="classify" id="classify">
+			<ul >
+				<h3>分类</h3>
+			</ul>
+		</div>
+		
+		<!--中间文章-->
+		<div class="content" id="content">
+			
+		</div>
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="bootstrap-3.3.7-dist/js/bootstrap.js"></script>	
+	<script type="text/javascript">
+		$(function(){
+			var sendcheck=$("#sendcheck");
+			sendcheck.click(function(){
+				 counttime=60;
+				settime();
+			});
+			function settime(){
+				if(counttime==0){
+					sendcheck.attr("disabled",false);
+					sendcheck.css("background","#D8524E");
+					sendcheck.html("发送验证码");
+					counttime=0;
+					return;
+				}else{
+					sendcheck.attr("disabled",true);
+					sendcheck.html(counttime+"秒后重新获取");
+					sendcheck.css("background","grey");
+					counttime--;
+				}
+				setTimeout(settime,1000);
+			}
+			
+			//搜索事件
+			$("#searchlogo").click(function(){
+				var content=$("#inputSuccess5").val();
+				$.ajax({
+					type:"post",
+					url:"search.php",
+					async:true,
+					dataType:"json",
+					data:{"content":content},
+					success:function(result){
+							for(var i of result){
+							var div=$("<div></div>").appendTo($("#content"));
+							var passage=$("<span></span>").appendTo(div);
+							var time=$("<span><span>").appendTo(div);
+							var writer=$("<span></span>").appendTo(div);
+							var special=$("<span></span>").appendTo(div);
+							//从数据库取出的数据分割存于essay
+							var essay =i.split(',')
+							passage.append(essay[0]);
+							time.append(essay[1]);
+							writer.append(essay[2]);
+							special.append(essay[3]);
+							}
+					},
+					error:function(){
+						alert("搜索失败");
+					}
+				});
+			})
+			
+			//展示列表
+			
+			$.ajax({
+				type:"post",
+				url:"list.php",
+				async:true,
+				dataType:"json",
+				success:function(result){
+					for(var i of result){
+						ul=$("ul");
+						var li =$("<li></li>").appendTo(ul);
+						li.append(i);
+					}
+				},
+				error:function(){
+					alert("获取失败");
+				}
+			});
+			
+			//中心文章列表
+			//因为数据用ajax远程获取 所以不能用click绑定
+			$(".classify").delegate("li","click",function(){
+				var topic=this.innerHTML;
+				$.ajax({
+					type:"GET",
+					url:"passage.php",
+					data:{topic:topic},
+					async:true,
+					dataType:"json",
+					success:function(result){
+						for(var i of result){
+							var div=$("<div></div>").appendTo($("#content"));
+							var passage=$("<span></span>").appendTo(div);
+							var time=$("<span><span>").appendTo(div);
+							var writer=$("<span></span>").appendTo(div);
+							var special=$("<span></span>").appendTo(div);
+							//从数据库取出的数据分割存于essay
+							var essay =i.split(',')
+							passage.append(essay[0]);
+							time.append(essay[1]);
+							writer.append(essay[2]);
+							special.append(essay[3]);
+						}
+					},
+					error:function(){
+						alert("获取文章出错");
+					}
+				})
+			})
+			
+			//登录 type为button,事件为click
+			$("#loginbtn").click(function(){
+				$(".login,.resign").css("display","none");
+				var email=$("#auser").val();
+				var psw=$("#apsw").val();
+				if(email==""||email==" "||psw==""||psw==" "){
+					alert("请填写再提交");
+				}
+				$.ajax({
+					type:"POST",
+					url:"admin.php",
+					data:{"email":email,"psw":psw},
+					async:true,
+					success:function(result){
+						//登陆成功
+					},
+					error:function(){
+						alert("登录失败");
+					}
+				})
+			})
+	})		
+	</script>
+	</body>
+</html>

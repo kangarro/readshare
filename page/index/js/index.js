@@ -6,7 +6,6 @@ $(function () {
         success:function(result){
             console.log(result);
             var obj = JSON.parse(result);
-            
             if (obj.result == 0) {
                 for (topic of obj.data) {
                     $("#topic-title").after("<a class=\"list-group-item\" href='../essay/list.html?tid=" + topic.tid + "'>" + topic.title + "</a>");
@@ -15,26 +14,27 @@ $(function () {
             }
         },
         error:function(){
-            alert("登录失败");
+            alert("获取主题失败");
         }
     });
 
     listEssay("all", 0);
 
-
-
-
     $("#searchBtn").click(function() {
         listEssay("search");
     });
-
+//搜索和刚登入 展示文章列表
     function listEssay(type, tid) {
         var data = "";
         if (type == "search") {
-            data = "searchKey=" + $("#searchKey").val()
-        } else if (type == "topic") {
-            data = "tid=" + tid;
+        	//如果是搜索 用关键字
+            data = "searchKey=" + $("#searchKey").val();
         }
+//      else if (type == "topic") {
+//      	//如果是登录显示文章 
+//          data = "tid=" + tid;
+//      }
+
         $.ajax({
             type:"GET",
             url:"/readshare/php/api/essay/list.php",

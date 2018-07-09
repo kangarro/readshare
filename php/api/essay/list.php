@@ -9,6 +9,7 @@
     $sql = "select e.uid, 1 as commentCount, e.agree, t.title as topic , e.eid,e.title,e.content,u.nickname as writer,e.writetime from essay e ";
     $sql = $sql."LEFT JOIN user u ON e.uid = u.uid LEFT JOIN topic t ON t.tid = e.tid WHERE 1=1 ";
     $searchKey = $_GET['searchKey'];
+    
     $isUid = $_GET['isUid'];
     if ($isUid == 'Y') {
         $uid = $_GET['uid'];
