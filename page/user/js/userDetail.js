@@ -8,8 +8,9 @@ $(function() {
 	        async:true,
 	        success:function(result){
 	            var obj = JSON.parse(result);
+	            $("#followBtn").val("followed");
+	            $(".followBtn").hide(500);
 	            if (obj.result == 0) {
-	                getMyINfo();
 	                window.reload();
 	            } else {
 	            }
@@ -36,7 +37,7 @@ $(function() {
 	                $("#my-follower").html(obj.data.followerCount);
 	                $("#my-follow-to").html(obj.data.followToCount);
 	                if (obj.pageData == 'N') {
-	                	$("#profile-panel").append('<span class="col-sm-12"><button class="col-sm-12 btn btn-success" id="followBtn">Follow it</button></span>');
+	                	$("#profile-panel").append('<span class="col-sm-12 followBtn"><button class="col-sm-12 btn btn-success" id="followBtn">Follow it</button></span>');
 	                	$("#followBtn").click(function() {
 	                		follow(uid);
 	                	});

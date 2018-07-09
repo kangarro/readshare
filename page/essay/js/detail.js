@@ -27,6 +27,7 @@ $(function () {
                 $('#essay-agree').html(essay.agree);
                 console.log(essay);
                 var comments = obj.arrData;
+                $('#commentbox').empty();
                 if (comments){
                     console.log(comments);
                     for (comment of comments) {

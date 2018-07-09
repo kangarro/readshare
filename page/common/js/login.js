@@ -1,3 +1,4 @@
+
 $(function() {
     if ($.cookie('uid') && $.cookie('uid') != null) {
         $("#showRegistBtn").hide();
@@ -40,7 +41,9 @@ $(function() {
                 console.log(obj);
                 if (obj.result != 0) {
                     $("#loginMsg").removeClass("hide");
+
                 } else {
+
                     $.cookie('uid', obj.data.uid, { path: '/'});
                     $('#logoutBtn').removeClass('hide');
                     $('#loginModal').modal('hide');
@@ -48,6 +51,7 @@ $(function() {
                     $("#showLoginBtn").hide();
                     $("#createEssay").removeClass("hide");
                     $("#personalCenter").removeClass("hide");
+                    window.location.reload();
                 }
             },
             error:function(){
@@ -69,6 +73,7 @@ $(function() {
                 $("#showLoginBtn").show();
                 $("#createEssay").addClass("hide");
                 $("#personalCenter").addClass("hide");
+                window.location="/readshare/page/index/index.html";
 
             },
             error:function(){
