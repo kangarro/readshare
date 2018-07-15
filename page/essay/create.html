@@ -4,7 +4,10 @@
     <meta charset="utf-8">
     <title>主页</title>
     <link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/detail.css">
+    <link rel="stylesheet" href="../../node_modules/simditor/styles/simditor.css">
+    <style>
+        #editor {overflow:scroll; max-height:300px}
+    </style>
 </head>
 <body>
     <div class="container">
@@ -26,7 +29,7 @@
                 <b id="topic-begin">choose you topic :&nbsp;</b>
                 
                 <br><br>
-                <textarea id="essay-content" class="form-control" rows="25" placeholder="I want to say something, such as 'I love Jerry Lin'"></textarea>
+                <textarea id="editor" placeholder="Balabala" autofocus></textarea>
                 <br>
                 <div class="text-center">
                     <button class="btn btn-md btn-success" id="commitBtn">Commit</button>
@@ -54,7 +57,12 @@
     <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../node_modules/simple-module/lib/module.js"></script>
+    <script type="text/javascript" src="../../node_modules/simple-hotkeys/lib/hotkeys.js"></script>
+    <script type="text/javascript" src="../../node_modules/simple-uploader/lib/uploader.js"></script>
+    <script src="../../node_modules/simditor/lib/simditor.js"></script>
     <script src="../common/js/login.js"></script>
     <script src="js/create.js"></script>
+    
 </body>
 </html>

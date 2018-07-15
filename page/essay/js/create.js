@@ -1,4 +1,9 @@
+
 $(function(){
+	var editor = new Simditor({
+		textarea: $('#editor')
+		//optional options
+	  });
 	var eid;
 	$.ajax({
         type:"GET",
